@@ -1,0 +1,21 @@
+"hg7127
+
+loadplugins '\.(js|penta)$'
+group user
+set guioptions=BCrs
+set maxitems=5
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+map -builtin <C-h> :back<CR>
+map -builtin <C-l> :forward<CR>
+
+set hintkeys=asdfghjkl
+
+" vim: set ft=pentadactyl:
+
+colorscheme molokai
+highlight FontFixed font-family: monospace !important; font: 13px "Andale Mono" !important;
+
