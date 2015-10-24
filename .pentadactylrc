@@ -1,21 +1,25 @@
-"hg7127
-
 loadplugins '\.(js|penta)$'
 group user
+" i like bookmark bar, don't know why.
 set guioptions=BCrs
+
+" 5 is enough for autocomplete.
 set maxitems=5
+
+" key mappings
 nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
-
 map -builtin <C-h> :back<CR>
 map -builtin <C-l> :forward<CR>
 
+" numbers are not good for hints.
 set hintkeys=asdfghjkl
 
-" vim: set ft=pentadactyl:
-
+" did i say that i like molokai?
 colorscheme molokai
+
+" did i also say that i like andale mono?
 highlight FontFixed font-family: monospace !important; font: 13px "Andale Mono" !important;
 
