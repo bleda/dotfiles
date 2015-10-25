@@ -23,3 +23,9 @@ colorscheme molokai
 " did i also say that i like andale mono?
 highlight FontFixed font-family: monospace !important; font: 13px "Andale Mono" !important;
 
+" disable fucking beep
+set noerrorbells
+set novisualbell
+hi Bell display: none;
+javascript dactyl.beep = function() { return false; }
+
