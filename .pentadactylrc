@@ -1,7 +1,7 @@
 loadplugins '\.(js|penta)$'
 group user
 " i like bookmark bar, don't know why.
-set guioptions=BCrs
+set guioptions=bCrs
 
 " 5 is enough for autocomplete.
 set maxitems=5
