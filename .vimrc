@@ -78,6 +78,8 @@ set copyindent
 set foldmethod=indent
 set foldlevel=99
 cmap w!! w !sudo tee % >/dev/null
+set autoread
+au CursorHold,CursorHoldI,CursorMoved,FocusGained,BufEnter * checktime
 
 " 80 characters per line is a must
 autocmd FileType * setlocal colorcolumn=80
