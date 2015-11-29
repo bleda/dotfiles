@@ -1,0 +1,20 @@
+set gui=bookmarks,nonavigation
+
+set maxitems=1
+
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+highlight Normal font-family: monospace !important; font: 13px "Andale Mono" !important;
+
+set hintchars=asdfghjkl
+
+set noerrorbells
+set novisualbell
+hi Bell display: none;
+javascript liberator.beep = function() { return false; }
+
+colorscheme monokai
+
