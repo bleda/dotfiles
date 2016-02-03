@@ -1,4 +1,4 @@
-set gui=bookmarks,nonavigation
+set gui=nonavigation
 
 set maxitems=1
 
@@ -6,8 +6,6 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
-
-highlight Normal font-family: monospace !important; font: 13px "Andale Mono" !important;
 
 set hintchars=asdfghjkl
 
@@ -18,3 +16,5 @@ javascript liberator.beep = function() { return false; }
 
 colorscheme monokai
 
+highlight CmdLine font-family: monospace !important; font: 13px "Andale Mono" !important;
+highlight CmdLine>* font-family: monospace !important; font: 13px "Andale Mono" !important;
