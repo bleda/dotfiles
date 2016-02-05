@@ -108,6 +108,14 @@ autocmd FileType coffee setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 " javascript configurations
 au BufNewFile,BufReadPost *.js setlocal shiftwidth=4 expandtab
 
+" golang config
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+
 
 " searching
 nnoremap <Leader>gg :Ggrep -i <cword><CR>
@@ -125,6 +133,9 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 0
 let g:ctrlp_working_path_mode = 0
+
+" disable fmt autosave for go.
+let g:go_fmt_autosave = 0
 
 " mappings
 nnoremap / /\v
