@@ -28,6 +28,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-endwise'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'fatih/vim-go'
 
 " color schemes
 Bundle 'lsdr/monokai'
