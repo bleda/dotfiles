@@ -115,7 +115,7 @@ au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-
+autocmd FileType go set tabstop=8 softtabstop=0 noexpandtab shiftwidth=8
 
 " searching
 nnoremap <Leader>gg :Ggrep -i <cword><CR>
@@ -133,9 +133,6 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 0
 let g:ctrlp_working_path_mode = 0
-
-" disable fmt autosave for go.
-let g:go_fmt_autosave = 0
 
 " mappings
 nnoremap / /\v
