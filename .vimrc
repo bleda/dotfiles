@@ -20,6 +20,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 " syntaxes
 Bundle 'leshill/vim-json'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'groenewege/vim-less'
 Bundle 'digitaltoad/vim-jade'
@@ -33,6 +34,7 @@ Bundle 'fatih/vim-go'
 " color schemes
 Bundle 'lsdr/monokai'
 Bundle 'tomasr/molokai'
+
 
 " configurations
 filetype plugin indent on
@@ -92,8 +94,8 @@ autocmd QuickFixCmdPost *grep* cwindow
 autocmd FileType crontab setlocal backupcopy=yes
 
 " html configurations
-autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
-autocmd FileType less setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+au BufNewFile,BufReadPost *.html setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+au BufNewFile,BufReadPost *.less setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
 " ruby configurations
 """""""""""""""""""""
@@ -106,7 +108,7 @@ autocmd FileType jade setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
 " javascript configurations
-au BufNewFile,BufReadPost *.js setlocal shiftwidth=4 expandtab
+autocmd FileType javascript  setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
 " golang config
 au FileType go nmap <leader>r <Plug>(go-run)
