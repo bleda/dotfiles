@@ -1,7 +1,7 @@
 loadplugins '\.(js|penta)$'
 group user
 " i like bookmark bar, don't know why.
-set guioptions=bCrs
+set guioptions=BCrs
 
 " 1 is enough for autocomplete.
 set maxitems=1
@@ -9,8 +9,8 @@ set maxitems=1
 " key mappings
 nnoremap ; :
 nnoremap : ;
-vnoremap ; :
-vnoremap : ;
+vmap -builtin ; :
+vmap -builtin : ;
 map -builtin <C-h> :back<CR>
 map -builtin <C-l> :forward<CR>
 

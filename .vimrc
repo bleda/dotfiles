@@ -20,6 +20,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 " syntaxes
 Bundle 'leshill/vim-json'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'rust-lang/rust.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'groenewege/vim-less'
@@ -30,22 +31,28 @@ Bundle 'tpope/vim-endwise'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'fatih/vim-go'
+Bundle 'leafgarland/typescript-vim'
+Bundle 'digitaltoad/vim-pug'
 
 " color schemes
 Bundle 'lsdr/monokai'
 Bundle 'tomasr/molokai'
+Bundle 'lifepillar/vim-solarized8'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'jceb/vim-orgmode'
 
 
 " configurations
 filetype plugin indent on
-set background=dark
-set guifont=Andale\ Mono:h13
+set guifont=Andale\ Mono:h14
 au VimResized * exe "normal! \<c-w>="
 if !has("gui_running")
     let g:rehash256=1
     colorscheme molokai
+    " set background=light
+    " colorscheme solarized
 else
-    colorscheme monokai
+    " colorscheme monokai
 endif
 syntax enable
 set grepprg=grep
