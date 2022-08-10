@@ -1,36 +1,49 @@
-set nocompatible
-filetype off
-set cursorline
-set cursorcolumn
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-" essentials
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-sleuth'
-Bundle 'trevordmiller/nova-vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'othree/html5.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-fireplace'
-Bundle 'guns/vim-clojure-static'
-Bundle 'luochen1990/rainbow'
-Bundle 'tpope/vim-commentary'
-Bundle 'venantius/vim-cljfmt'
+" Required:
+set runtimepath+=/Users/emirbostan/.cache/dein/repos/github.com/Shougo/dein.vim
 
-" configurations
+" Required:
+call dein#begin('/Users/emirbostan/.cache/dein')
+
+" Let dein manage dein
+" Required:
+call dein#add('/Users/emirbostan/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+" Add or remove your plugins here like this:
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
+
+" Required:
+call dein#end()
+
+" Required:
 filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
+
+call dein#add('tpope/vim-fugitive')
+call dein#add('terryma/vim-multiple-cursors')
+call dein#add('tpope/vim-sensible')
+call dein#add('tpope/vim-sleuth')
+call dein#add('tpope/vim-commentary')
+call dein#add('junegunn/fzf', { 'build': './install', 'rtp': '/opt/homebrew/opt/fzf' })
+call dein#add('junegunn/fzf.vim')
+call dein#add('tpope/vim-rails')
+
 set guifont=Andale\ Mono:h14
 au VimResized * exe "normal! \<c-w>="
 set background=light
 set termguicolors
-colorscheme nova
-syntax enable
 set grepprg=grep
 set laststatus=2
 set number
@@ -66,33 +79,13 @@ set foldlevel=99
 cmap w!! w !sudo tee % >/dev/null
 set autoread
 au CursorHold,CursorHoldI,CursorMoved,FocusGained,BufEnter * checktime
-
-" 80 characters per line is a must
-" autocmd FileType * setlocal colorcolumn=80
-" match OverLength /\%80v.\+/
-" highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=#E35753
 autocmd BufEnter * setlocal bufhidden=delete
 
 autocmd QuickFixCmdPost *grep* cwindow
-
-" searching
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
-" ctrlp configurations
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_custom_ignore = {
-\ 'dir': '\v[\/](bower_components|node_modules|dist|.git|.hg|.svn|.tmp|tmp)$',
-\ 'file': '\v\.(exe|o|out|so|dll|wmv|mov|mkv|pdf|jpg|gif|jpeg|png|mp4|zip|7z|tar|gz|bz2|rar|swc|swf|iso|msi|wav|bin|mp3|ttf)$',
-\ }
-let g:ctrlp_max_depth = 16
-let g:ctrlp_max_files = 0
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_use_caching = 0
-let g:ctrlp_working_path_mode = 0
-
-" mappings
 nnoremap / /\v
 vnoremap / /\v
 nnoremap ; :
@@ -114,26 +107,13 @@ set clipboard=unnamed
 set mouse=a
 au TermOpen * setlocal nonumber norelativenumber
 
-let g:rainbow_conf = {
-\	'guifgs': ['Chartreuse2', 'Violet', 'Yellow1', 'HotPink', 'Aquamarine1'],
-\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-\	'operators': '_,_',
-\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-\	'separately': {
-\		'*': {},
-\		'tex': {
-\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-\		},
-\		'lisp': {
-\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-\		},
-\		'vim': {
-\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-\		},
-\		'html': {
-\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-\		},
-\		'css': 0,
-\	}
-\}
-let g:rainbow_active = 1
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
+let g:fzf_preview_window = 'right:60%'
+nnoremap <c-p> :Files<cr> augroup fzf autocmd!
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup END
