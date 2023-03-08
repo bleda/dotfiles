@@ -116,14 +116,14 @@ let g:fzf_action = {
       \ 'ctrl-v': 'vsplit'
       \ }
 let g:fzf_preview_window = 'right:60%'
-nnoremap <c-p> :Files<cr>
+nnoremap <c-p> :GFiles<cr>
 augroup fzf
   autocmd!
   autocmd! FileType fzf
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup END
-let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/*' -prune -o -path 'server/dist' -prune -o -path 'docs/*' -prune -o -path 'target/*' -prune -o -path 'dist/*' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules' -prune -o -path 'server/dist' -prune -o -path 'docs' -prune -o -path 'target' -prune -o -path 'dist' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 " let $FZF_DEFAULT_COMMAND = 'find . \( -name node_modules -o -name .git \) -prune -o -print'
 
 
